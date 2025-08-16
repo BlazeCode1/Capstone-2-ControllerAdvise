@@ -9,12 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public class ControllerAdvice {
+@ControllerAdvice
+public class ControllerAdvise {
     @ExceptionHandler(value = ApiException.class)
     public ResponseEntity<?> ApiException(ApiException e){
         String message=e.getMessage();
